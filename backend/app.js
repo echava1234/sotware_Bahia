@@ -1,26 +1,18 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { router as clientesRouter } from './routes/clientes.js';
-import { router as productosRouter } from './routes/productos.js';
-import { router as facturasRouter } from './routes/facturas.js';
-import { router as transaccionesRouter } from './routes/transacciones.js';
-import { inicializarDatos } from './seed.js';
+const express = require('express');
+const cors = require('cors');
+const authRoutes = require('./routes/auth');
+const adminRoutes = require('./routes/admin');
+const residentesRoutes = require('./routes/residentes');
+const facturasRoutes = require('./routes/facturas');
 
-dotenv.config();
 const app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-app.use('/api/clientes', clientesRouter);
-app.use('/api/productos', productosRouter);
-app.use('/api/facturas', facturasRouter);
-app.use('/api/transacciones', transaccionesRouter);
+app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/residentes', residentesRoutes);
+app.use('/api/facturas', facturasRoutes);
 
 const PORT = process.env.PORT || 3001;
-inicializarDatos().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${PORT}`);
-  });
-});
+app.listen(PORT, () => console.log(`Backend Bahía A corriendo en puerto ${PORT}`));
