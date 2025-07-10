@@ -1,15 +1,11 @@
-import express from 'express';
-import { agregarFactura, obtenerFacturas, crearTablaFacturas } from '../models/factura.js';
+const express = require('express');
+const fs = require('fs');
+const router = express.Router();
 
-export const router = express.Router();
-
-crearTablaFacturas();
-
-router.get('/', async (_req, res) => {
-  res.json(await obtenerFacturas());
+router.get('/:residenteId', (req, res) => {
+  const facturas = JSON.parse(fs.readFileSync('data/facturas.json', 'utf8'));
+  const residentesFacturas = facturas.filter(f => f.residenteId == req.params.residenteId);
+  res.json(residentesFacturas);
 });
 
-router.post('/', async (req, res) => {
-  const id = await agregarFactura(req.body);
-  res.status(201).json({ mensaje: 'Factura creada', id });
-});
+module.exports = router;
