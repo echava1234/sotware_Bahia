@@ -1,0 +1,77 @@
+body {
+  background: #f3f7fb;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.app-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+  padding: 36px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1, h2 {
+  color: #2262a9;
+}
+input, button, select {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+th, td {
+  border: 1px solid #c4dbf7;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background: #e2eefc;
+}
+tr:nth-child(even) {
+  background: #f7fbfe;
+}
+.button-primary {
+  background: #2262a9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.button-primary:hover {
+  background: #114170;
+}
+.logout {
+  background: transparent;
+  color: #2262a9;
+  border: 1px solid #2262a9;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 16px;
+}
+.logout:hover {
+  background: #e2eefc;
+}
+.alert {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+.admin-import {
+  margin: 24px 0;
+  padding: 20px;
+  background: #eaf6ff;
+  border-radius: 8px;
+}
